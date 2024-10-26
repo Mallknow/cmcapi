@@ -30,24 +30,24 @@ type Quote struct {
 }
 
 type CmcRestApiCryptocurrencyListingsLatestResRow struct {
-	Id                            int               `json:"id"`                               // The unique CoinMarketCap ID for this cryptocurrency.
-	Name                          string            `json:"name"`                             // The name of this cryptocurrency.
-	Symbol                        string            `json:"symbol"`                           // The ticker symbol for this cryptocurrency.
-	Slug                          string            `json:"slug"`                             // The web URL friendly shorthand version of this cryptocurrency name.
-	CmcRank                       int               `json:"cmc_rank"`                         // The cryptocurrency's CoinMarketCap rank by market cap.
-	NumMarketPairs                int               `json:"num_market_pairs"`                 // The number of active trading pairs available for this cryptocurrency across supported exchanges.
-	CirculatingSupply             float64           `json:"circulating_supply"`               // The approximate number of coins circulating for this cryptocurrency.
-	TotalSupply                   float64           `json:"total_supply"`                     // The approximate total amount of coins in existence right now (minus any coins that have been verifiably burned).
-	MarketCapByTotalSupply        float64           `json:"market_cap_by_total_supply"`       // The market cap by total supply. This field is only returned if requested through the aux request parameter.
-	MaxSupply                     float64           `json:"max_supply"`                       // The expected maximum limit of coins ever to be available for this cryptocurrency.
-	InfiniteSupply                bool              `json:"infinite_supply"`                  // The cryptocurrency is known to have an infinite supply.
-	LastUpdated                   string            `json:"last_updated"`                     // Timestamp (ISO 8601) of the last time this cryptocurrency's market data was updated.
-	DateAdded                     string            `json:"date_added"`                       // Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap.
-	Tags                          []string          `json:"tags"`                             // Array of tags associated with this cryptocurrency. Currently only a mineable tag will be returned if the cryptocurrency is mineable. Additional tags will be returned in the future.
-	SelfReportedCirculatingSupply float64           `json:"self_reported_circulating_supply"` // The self reported number of coins circulating for this cryptocurrency.
-	SelfReportedMarketCap         float64           `json:"self_reported_market_cap"`         // The self reported market cap for this cryptocurrency.
-	TvlRatio                      float64           `json:"tvl_ratio"`                        // Percentage of Total Value Locked
-	Platform                      `json:"platform"` // Metadata about the parent cryptocurrency platform this cryptocurrency belongs to if it is a token, otherwise null.
-	Quote                         Quote             `json:"quote"` // A map of market quotes in different currency conversions. The default map included is USD.
+	Id                            int              `json:"id"`                               // The unique CoinMarketCap ID for this cryptocurrency.
+	Name                          string           `json:"name"`                             // The name of this cryptocurrency.
+	Symbol                        string           `json:"symbol"`                           // The ticker symbol for this cryptocurrency.
+	Slug                          string           `json:"slug"`                             // The web URL friendly shorthand version of this cryptocurrency name.
+	CmcRank                       int              `json:"cmc_rank"`                         // The cryptocurrency's CoinMarketCap rank by market cap.
+	NumMarketPairs                int              `json:"num_market_pairs"`                 // The number of active trading pairs available for this cryptocurrency across supported exchanges.
+	CirculatingSupply             float64          `json:"circulating_supply"`               // The approximate number of coins circulating for this cryptocurrency.
+	TotalSupply                   float64          `json:"total_supply"`                     // The approximate total amount of coins in existence right now (minus any coins that have been verifiably burned).
+	MarketCapByTotalSupply        float64          `json:"market_cap_by_total_supply"`       // The market cap by total supply. This field is only returned if requested through the aux request parameter.
+	MaxSupply                     float64          `json:"max_supply"`                       // The expected maximum limit of coins ever to be available for this cryptocurrency.
+	InfiniteSupply                bool             `json:"infinite_supply"`                  // The cryptocurrency is known to have an infinite supply.
+	LastUpdated                   string           `json:"last_updated"`                     // Timestamp (ISO 8601) of the last time this cryptocurrency's market data was updated.
+	DateAdded                     string           `json:"date_added"`                       // Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap.
+	Tags                          []string         `json:"tags"`                             // Array of tags associated with this cryptocurrency. Currently only a mineable tag will be returned if the cryptocurrency is mineable. Additional tags will be returned in the future.
+	SelfReportedCirculatingSupply float64          `json:"self_reported_circulating_supply"` // The self reported number of coins circulating for this cryptocurrency.
+	SelfReportedMarketCap         float64          `json:"self_reported_market_cap"`         // The self reported market cap for this cryptocurrency.
+	TvlRatio                      float64          `json:"tvl_ratio"`                        // Percentage of Total Value Locked
+	Platform                      Platform         `json:"platform"`                         // Metadata about the parent cryptocurrency platform this cryptocurrency belongs to if it is a token, otherwise null.
+	Quote                         map[string]Quote `json:"quote"`                            // A map of market quotes in different currency conversions. The default map included is USD.
 }
 type CmcRestApiCryptocurrencyListingsLatestRes []CmcRestApiCryptocurrencyListingsLatestResRow
