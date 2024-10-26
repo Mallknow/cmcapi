@@ -7,7 +7,7 @@ import (
 type CmcStatusRes struct {
 	Status struct {
 		Timestamp    string      `json:"timestamp"`
-		ErrorCode    interface{} `json:"error_code"`
+		ErrorCode    interface{} `json:"error_code"` // API Response Bug: Status ErrorCode could be int or string, so use interface{} to handle it
 		ErrorMessage string      `json:"error_message"`
 		Elapsed      int         `json:"elapsed"`
 		CreditCount  int         `json:"credit_count"`
