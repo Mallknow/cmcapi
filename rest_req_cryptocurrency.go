@@ -142,3 +142,60 @@ func (api *CmcRestApiCryptocurrencyListingsLatestAPI) Aux(aux string) *CmcRestAp
 	api.req.Aux = GetPointer(aux)
 	return api
 }
+
+type CmcRestApiCryptocurrencyQuotesLatestAPI struct {
+	client *CmcRestClient
+	req    *CmcRestApiCryptocurrencyQuotesLatestReq
+}
+
+type CmcRestApiCryptocurrencyQuotesLatestReq struct {
+	Id          *string `json:"id"`           //string One or more comma-separated cryptocurrency CoinMarketCap IDs. Example: 1,2
+	Slug        *string `json:"slug"`         //string Alternatively pass a comma-separated list of cryptocurrency slugs. Example: "bitcoin,ethereum"
+	Symbol      *string `json:"symbol"`       //string Alternatively pass one or more comma-separated cryptocurrency symbols. Example: "BTC,ETH". At least one "id" or "slug" or "symbol" is required for this request.
+	Convert     *string `json:"convert"`      //string Optionally calculate market quotes in up to 120 currencies at once by passing a comma-separated list of cryptocurrency or fiat currency symbols. Each additional convert option beyond the first requires an additional call credit. A list of supported fiat options can be found here. Each conversion is returned in its own "quote" object.
+	ConvertId   *string `json:"convert_id"`   //string Optionally calculate market quotes by CoinMarketCap ID instead of symbol. This option is identical to convert outside of ID format. Ex: convert_id=1,2781 would replace convert=BTC,USD in your query. This parameter cannot be used when convert is used.
+	Aux         *string `json:"aux"`          //string "num_market_pairs,cmc_rank,date_added,tags,platform,max_supply,circulating_supply,total_supply,is_active,is_fiat" Optionally specify a comma-separated list of supplemental data fields to return. Pass num_market_pairs,cmc_rank,date_added,tags,platform,max_supply,circulating_supply,total_supply,market_cap_by_total_supply,volume_24h_reported,volume_7d,volume_7d_reported,volume_30d,volume_30d_reported,is_active,is_fiat to include all auxiliary fields.
+	SkipInvalid *bool   `json:"skip_invalid"` //boolean true Pass true to relax request validation rules. When requesting records on multiple cryptocurrencies an error is returned if no match is found for 1 or more requested cryptocurrencies. If set to true, invalid lookups will be skipped allowing valid cryptocurrencies to still be returned.
+}
+
+// string One or more comma-separated cryptocurrency CoinMarketCap IDs. Example: 1,2
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) Id(id string) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.Id = GetPointer(id)
+	return api
+}
+
+// string Alternatively pass a comma-separated list of cryptocurrency slugs. Example: "bitcoin,ethereum"
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) Slug(slug string) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.Slug = GetPointer(slug)
+	return api
+}
+
+// string Alternatively pass one or more comma-separated cryptocurrency symbols. Example: "BTC,ETH". At least one "id" or "slug" or "symbol" is required for this request.
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) Symbol(symbol string) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.Symbol = GetPointer(symbol)
+	return api
+}
+
+// string Optionally calculate market quotes in up to 120 currencies at once by passing a comma-separated list of cryptocurrency or fiat currency symbols. Each additional convert option beyond the first requires an additional call credit. A list of supported fiat options can be found here. Each conversion is returned in its own "quote" object.
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) Convert(convert string) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.Convert = GetPointer(convert)
+	return api
+}
+
+// string Optionally calculate market quotes by CoinMarketCap ID instead of symbol. This option is identical to convert outside of ID format. Ex: convert_id=1,2781 would replace convert=BTC,USD in your query. This parameter cannot be used when convert is used.
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) ConvertId(convertId string) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.ConvertId = GetPointer(convertId)
+	return api
+}
+
+// string "num_market_pairs,cmc_rank,date_added,tags,platform,max_supply,circulating_supply,total_supply,is_active,is_fiat" Optionally specify a comma-separated list of supplemental data fields to return. Pass num_market_pairs,cmc_rank,date_added,tags,platform,max_supply,circulating_supply,total_supply,market_cap_by_total_supply,volume_24h_reported,volume_7d,volume_7d_reported,volume_30d,volume_30d_reported,is_active,is_fiat to include all auxiliary fields.
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) Aux(aux string) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.Aux = GetPointer(aux)
+	return api
+}
+
+// boolean true Pass true to relax request validation rules. When requesting records on multiple cryptocurrencies an error is returned if no match is found for 1 or more requested cryptocurrencies. If set to true, invalid lookups will be skipped allowing valid cryptocurrencies to still be returned.
+func (api *CmcRestApiCryptocurrencyQuotesLatestAPI) SkipInvalid(skipInvalid bool) *CmcRestApiCryptocurrencyQuotesLatestAPI {
+	api.req.SkipInvalid = GetPointer(skipInvalid)
+	return api
+}
